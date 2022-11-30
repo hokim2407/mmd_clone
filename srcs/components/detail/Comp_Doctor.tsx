@@ -3,19 +3,24 @@ import {View, Image, Text} from 'react-native';
 import tw from 'twrnc';
 import CompInfoCard from '../common/Comp_InfoCard';
 import {doctors} from '../../../dump';
-const CompDoctor = ({hospital}: {hospital: Hospital}) => {
+const CompDoctor = () => {
   return (
-    <View style={tw`flex-1 bg-white p-2 `}>
-      <Text>의사 {doctors.length}</Text>
+    <View style={tw`flex-1 bg-white p-4 `}>
+      <Text style={tw`text-black`}>의사 {doctors.length}</Text>
       {doctors.map((doctor, idx) => (
-        <View key={idx} style={tw`flex-1 flex-row  p-4`}>
+        <View key={idx} style={tw`flex-1 flex-row py-2 items-center`}>
           <Image
             source={{uri: doctor.thumbnail}}
-            resizeMode="cover"
-            style={[tw`flex-1`]}
+            resizeMode="contain"
+            style={[tw`flex-1  rounded-full aspect-square`]}
           />
-          <View style={tw`flex-2`}>
-            <CompInfoCard data={doctor} showTag={false} showImg={false} />
+          <View style={tw`flex-4 pl-2`}>
+            <CompInfoCard
+              data={doctor}
+              showTag={false}
+              showImg={false}
+              border={null}
+            />
           </View>
         </View>
       ))}

@@ -1,12 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {View, Dimensions, Text, TouchableOpacity} from 'react-native';
+import React from 'react';
+import {View, Text, TouchableOpacity} from 'react-native';
 import tw from 'twrnc';
-import {LightGray, DarkGray} from '../../styles/color';
+import {DarkGray} from '../../styles/color';
 
 import CompHScroll from './Comp_HScroll';
 import CompImage from './Comp_Image';
 
-const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const CompCardHScroll = ({
   children = undefined,
   title,

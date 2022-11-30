@@ -1,7 +1,7 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleProp, ViewStyle} from 'react-native';
 import tw from 'twrnc';
-import {DarkGray} from '../../styles/color';
+import {Gray} from '../../styles/color';
 const CompInfo = ({
   children,
   title,
@@ -16,14 +16,14 @@ const CompInfo = ({
   button: {content: string; onClick?: () => void};
 }) => {
   return (
-    <View style={[tw`bg-white p-2 `, style]}>
-      {showBorder && <View style={tw`mb-2 border-t border-[${DarkGray}]`} />}
-      <View style={tw`flex-row justify-between`}>
-        <Text>{title}</Text>
+    <View style={[tw`bg-white p-4 `, style]}>
+      {showBorder && <View style={tw`mb-2 border-t border-[${Gray}]`} />}
+      <View style={tw`flex-row justify-between items-center mb-2`}>
+        <Text style={tw`text-black`}>{title}</Text>
         <TouchableOpacity
-          style={tw`border border-[${DarkGray}] p-2`}
+          style={tw`text-xs border border-[${Gray}] rounded p-2`}
           onPress={button.onClick}>
-          <Text>{button.content}</Text>
+          <Text style={tw`text-xs `}>{button.content}</Text>
         </TouchableOpacity>
       </View>
       {children}

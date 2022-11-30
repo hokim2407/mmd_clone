@@ -34,18 +34,20 @@ declare type Region = {
 declare module '@env' {
   export const GOOGLE_KEY: string;
 }
+declare type HospitalTimeInfo = {
+  day: string;
+  open: string;
+  close: string;
+  lunch: string;
+};
+
 declare type Hospital = {
   tags: string[];
   cates: {
     name: string;
     cnt: number;
   }[];
-  times: {
-    day: string;
-    open: string;
-
-    close: string;
-  }[];
+  times: HospitalTimeInfo[];
 
   name: string;
   starStats: Stats;

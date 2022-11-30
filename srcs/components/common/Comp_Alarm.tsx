@@ -1,8 +1,9 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import CompImage from './Comp_Image';
 import tw from 'twrnc';
-import {LightGray, DarkGray, StarYellow} from '../../styles/color';
+import {DarkGray, StarYellow} from '../../styles/color';
+
 const CompAlarm = ({mode = 'light'}: {mode?: 'light' | 'dark'}) => {
   return (
     <View style={tw`flex-row p-1`}>

@@ -3,7 +3,7 @@ import {View, Text, TouchableOpacity, Image} from 'react-native';
 import tw from 'twrnc';
 import {LightGray, DarkGray} from '../../styles/color';
 import {mainCategories} from '../../../dump';
-
+import CompIconText from '../common/Comp_IconText';
 const CompCategory = (props: {navigation: NavPropsNavigation}) => {
   const [cateList, setCateList] = useState<string[]>();
 
@@ -22,28 +22,13 @@ const CompCategory = (props: {navigation: NavPropsNavigation}) => {
       {cateList &&
         cateList.length > 0 &&
         cateList.map((cate, i) => (
-          <TouchableOpacity
+          <CompIconText
             key={i}
+            title={cate}
             onPress={onPress(cate)}
-            style={[
-              tw`p-2  shrink-0 grow justify-center items-center border border-[${LightGray}] aspect-square`,
-              {flexBasis: '25%'},
-            ]}>
-            <Image
-              style={[
-                tw`w-[70%] h-[70%]`,
-                {resizeMode: 'contain', tintColor: DarkGray},
-              ]}
-              source={require('../../../static/images/hospital.png')}
-            />
-            <Text
-              style={[
-                tw` h-[30%] flex-1 shrink-0 flex-wrap text-xs`,
-                {textAlignVertical: 'center'},
-              ]}>
-              {cate}
-            </Text>
-          </TouchableOpacity>
+            src={require('../../../static/images/hospital.png')}
+            width={'25%'}
+          />
         ))}
     </View>
   );

@@ -25,7 +25,7 @@ const CompInfoCard = ({
   showReviewSum?: boolean;
   showDist?: boolean;
   navigation?: NavPropsNavigation;
-  border?: 'b' | 't' | 'l' | 'r' | 'a' | undefined;
+  border?: 'b' | 't' | 'l' | 'r' | 'a' | null;
   round?: boolean;
   startFullRate?: number;
 }) => {
@@ -34,6 +34,13 @@ const CompInfoCard = ({
       navigation?.push('Detail', {hospital: data});
     }
   };
+  let borderStyle = '';
+  if (border) {
+    borderStyle =
+      border == 'a'
+        ? `border border-[${LightGray}]`
+        : `border-${border} border-[${LightGray}]`;
+  }
 
   const Rank = () => {
     if (showRank) {
@@ -94,12 +101,7 @@ const CompInfoCard = ({
 
   return (
     <TouchableOpacity
-      style={tw`flex-row p-2 ${round ? 'rounded' : ''} ${
-        border &&
-        (border == 'a'
-          ? `border border-[${LightGray}]`
-          : `border-${border} border-[${LightGray}]`)
-      }`}
+      style={tw`flex-row p-2  ${round ? 'rounded' : ''} ${borderStyle}`}
       onPress={onPress}>
       {Rank()}
       <View style={tw`flex-1`}>
