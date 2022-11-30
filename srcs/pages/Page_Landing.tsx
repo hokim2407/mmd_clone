@@ -3,7 +3,8 @@ import {View, Text, StatusBar} from 'react-native';
 import tw from 'twrnc';
 import {CommonActions} from '@react-navigation/native';
 
-const PageLanding = ({navigation}: Props) => {
+import {MainColor} from '../styles/color';
+const PageLanding = ({navigation}: NavProps) => {
   useEffect(() => {
     setTimeout(() => {
       navigation.dispatch(
@@ -21,9 +22,9 @@ const PageLanding = ({navigation}: Props) => {
   }, []);
 
   return (
-    <View style={tw`flex-1 bg-[#dfdfdf] items-center justify-center`}>
+    <View style={tw`flex-1 bg-[${MainColor}] items-center justify-center`}>
       <StatusBar hidden />
-      <Text style={tw`text-[#51245f] font-bold text-[20]`}>Hello</Text>
+      <Text style={tw`text-white font-bold text-[20]`}>ㅁㄷㄷ</Text>
     </View>
   );
 };

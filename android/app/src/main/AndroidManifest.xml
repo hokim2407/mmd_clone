@@ -2,7 +2,12 @@
   package="com.mmd_mobile">
 
     <uses-permission android:name="android.permission.INTERNET" />
-
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <application>
+      <meta-data
+        android:name="com.google.android.geo.API_KEY"
+        android:value="@string/GOOGLE_MAP_KEY"/>
+    </application>
     <application
       android:name=".MainApplication"
       android:label="@string/app_name"
