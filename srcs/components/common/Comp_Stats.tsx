@@ -60,7 +60,7 @@ const CompStats = ({
               key={idx}
               style={tw`p-1 flex-row justify-between border-b border-[${LightGray}] `}>
               <Text style={tw`text-black text-xs`}>{stat.name}</Text>
-              <CompStarRate rate={stat.star / 2} fullRate={5} />
+              <CompStarRate rate={stat.star} fullRate={5} />
             </View>
           );
         })}

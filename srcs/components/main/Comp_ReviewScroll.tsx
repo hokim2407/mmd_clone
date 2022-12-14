@@ -7,16 +7,21 @@ import {hospitals} from '../../../dump';
 import CompCardHScroll from '../common/Comp_CardHScroll';
 import CompStarRate from '../common/Comp_StarRate';
 
+import {useAppDispatch} from '../../context/store';
+import {setHospital} from '../../context/hospitalSlice';
+
 const {width: SCREEN_WIDTH} = Dimensions.get('window');
 const CompReview = (props: {navigation: NavPropsNavigation}) => {
   const [hospitalList, setHospitals] = useState<Hospital[]>();
+  const dispatch = useAppDispatch();
   useEffect(() => {
     setHospitals(hospitals);
   }, []);
 
   const onPress = (hospital: Hospital) => {
     const showDetails = () => {
-      props.navigation?.push('Detail', {hospital});
+      dispatch(setHospital(hospital));
+      props.navigation?.push('Detail');
     };
     return showDetails;
   };

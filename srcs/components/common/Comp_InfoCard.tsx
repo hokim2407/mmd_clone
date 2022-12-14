@@ -4,6 +4,9 @@ import {DarkGray, LightGray} from '../../styles/color';
 
 import CompStarRate from './Comp_StarRate';
 import tw from 'twrnc';
+import {useAppDispatch} from '../../context/store';
+import {setHospital} from '../../context/hospitalSlice';
+
 const CompInfoCard = ({
   children = undefined,
   data,
@@ -29,9 +32,12 @@ const CompInfoCard = ({
   round?: boolean;
   startFullRate?: number;
 }) => {
+  const dispatch = useAppDispatch();
+
   const onPress = () => {
     if ('addr' in data) {
-      navigation?.push('Detail', {hospital: data});
+      dispatch(setHospital(data));
+      navigation?.push('Detail');
     }
   };
   let borderStyle = '';
@@ -114,7 +120,7 @@ const CompInfoCard = ({
             {/* 별점|리뷰 */}
             <View style={tw`flex-row  justify-start items-center`}>
               <CompStarRate
-                rate={data.starStats.avg / 2}
+                rate={data.starStats.avg}
                 fullRate={startFullRate}
                 showRate={true}
               />

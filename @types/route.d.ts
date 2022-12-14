@@ -31,6 +31,10 @@ declare type Region = {
   longitudeDelta: number;
 };
 
+declare type Dict = {
+  [string]: string | number | undefined;
+};
+
 declare module '@env' {
   export const GOOGLE_KEY: string;
 }
@@ -71,7 +75,6 @@ declare type Doctor = {
 
   name: string;
   starStats: Stats;
-
 
   review: number;
   reviewContent?: string;

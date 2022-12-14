@@ -22,9 +22,9 @@ const CompStarRate = ({
     <View style={tw`flex-row`}>
       {[...Array(fullRate).keys()].map(idx => {
         const status =
-          rate >= idx + 1
+          rate / 2 >= idx + 1
             ? StarStatus.FULL
-            : idx + 1 - rate < 1
+            : idx + 1 - rate / 2 < 1
             ? StarStatus.HALF
             : StarStatus.EMPTY;
         return (

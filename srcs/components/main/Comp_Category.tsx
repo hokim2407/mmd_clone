@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import {View} from 'react-native';
 import tw from 'twrnc';
-import {LightGray, DarkGray} from '../../styles/color';
 import {mainCategories} from '../../../dump';
 import CompIconText from '../common/Comp_IconText';
 const CompCategory = (props: {navigation: NavPropsNavigation}) => {
